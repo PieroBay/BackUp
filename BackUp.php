@@ -43,7 +43,7 @@ class BackUp{
 		-- --------------------------------------------------------
 		";
 		 
-		while ($aTable = $sResult->fetch(PDO::FETCH_ASSOC)) {
+		while ($aTable = $sResult->fetch(\PDO::FETCH_ASSOC)) {
 		 
 			$sTable     = $aTable['Tables_in_' . $this->dataBase];
 			
@@ -51,7 +51,7 @@ class BackUp{
 			
 			$sResult2   = $this->db->query($sQuery);
 			
-			$aTableInfo = $sResult2->fetch(PDO::FETCH_ASSOC);
+			$aTableInfo = $sResult2->fetch(\PDO::FETCH_ASSOC);
 		 
 			$sData     .= "\n\n--
 			-- Tabel structur for table `$sTable`
@@ -67,7 +67,7 @@ class BackUp{
 		 
 		  $sResult3 = $this->db->query($sQuery);
 		 
-		  while ($aRecord = $sResult3->fetch(PDO::FETCH_ASSOC)) {
+		  while ($aRecord = $sResult3->fetch(\PDO::FETCH_ASSOC)) {
 		 
 		    $sData  .= "INSERT INTO $sTable VALUES (";
 		    $sRecord = "";
